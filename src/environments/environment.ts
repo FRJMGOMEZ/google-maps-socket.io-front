@@ -2,8 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { SocketIoConfig } from 'ngx-socket-io';
+
 export const environment = {
-  production: false
+  production: false,
+  googleAPIKey: "AIzaSyD7jX4TvzUeiVRR-EDdsn-b5QdMlAu5Z2c",
+  backUrl: 'http://localhost:3000',
+  socketConfig: <SocketIoConfig>{ url: 'http://localhost:3000', options: {} }
 };
 
 /*

@@ -1,0 +1,28 @@
+<div #mapContainer (window:resize)="onResize()" class="map-container"  >
+    <google-map [height]="height" [width]="width" [zoom]="zoom" [center]="center">
+    
+       <map-marker
+        #markerElem
+        *ngFor="let marker of markers"
+        [position]="marker.marker.position"
+        [label]="marker.marker.label"
+        [title]="marker.marker.title"
+        [options]="marker.marker.options"
+        [clickable]="true"
+        (mapClick)="openInfo(markerElem,marker.id)" 
+        (mapDrag)="markerDrag($event,marker.id)"></map-marker>
+
+        <map-info-window  >
+            <div class="d-flex flex-column">
+                <p>
+                    {{ infoContent?.info }}
+                </p>
+                <button (click)="removeMarker()"class="btn btn-danger" >remove marker</button>
+            </div>
+        </map-info-window>
+    </google-map>
+       <div class="add-marker-combo">
+           <button class=" btn btn-primary" (click)="addMarker(undefined,infoText.value)">Add marker</button>
+           <input #infoText class="m-2" type="text" placeholder="info" >
+       </div>
+</div>

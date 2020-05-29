@@ -1,0 +1,19 @@
+
+.add-marker-combo{
+
+    z-index:9999;
+
+    position: absolute;
+
+    top: 8px;
+
+    right:30%;
+}
+
+
+.map-container{
+    height:97%;
+    width:100%;
+    background-color: antiquewhite;
+    border:1px solid black
+}
